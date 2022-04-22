@@ -26,12 +26,18 @@
 }
 .Weather .current-temperature {
   color: rgb(32, 33, 36);
-  font-size: 48px;
-  line-height: 60px;
-  font-weight: 400;
-  display: inline;
+  font-size: 45px;
+  line-height: 65px;
 }
 .Weather img {
-  height: 60px;
-  display: inline;
+  height: 64px;
+  vertical-align: top;
+  margin-right: 10px;
+}
+.Weather .current-unit {
+  color: rgb(32, 33, 36);
+  position: relative;
+  top: -20px;
+  margin-right: 5px;
+  /* line-height: 1; */
 }

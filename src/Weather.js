@@ -28,14 +28,14 @@ export default function Weather() {
         <li>Thursday 07:00</li>
         <li>Mostly cloudy</li>
       </ul>
-      <div className="row">
+      <div className="row mt-3">
         <div className="col-6">
           <div className="clearfix">
             <img
               src="https://ssl.gstatic.com/onebox/weather/64/sunny_s_cloudy.png"
               alt="sunny with cloud"
               className="float-left"
-            />{" "}
+            />
             <span className="current-temperature">6</span>
             <span className="current-unit">°C</span>
           </div>
