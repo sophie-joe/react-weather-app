@@ -5,6 +5,7 @@ import axios from "axios";
 import WeatherInfo from "./WeatherInfo";
 
 export default function Weather(props) {
+  // eslint-disable-next-line
   const [ready, setReady] = useState(false);
   const [city, setCity] = useState(props.defaultCity);
   const [weatherData, setWeatherData] = useState({ ready: false });
