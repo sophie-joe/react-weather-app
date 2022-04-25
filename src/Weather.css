@@ -29,8 +29,8 @@
   font-size: 45px;
   line-height: 65px;
 }
-.Weather img {
-  height: 64px;
+.Weather canvas {
+  height: 60px;
   vertical-align: top;
   margin-right: 10px;
 }
@@ -39,5 +39,4 @@
   position: relative;
   top: -20px;
   margin-right: 5px;
-  /* line-height: 1; */
 }
