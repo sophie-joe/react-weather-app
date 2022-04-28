@@ -28,12 +28,12 @@
   color: rgb(32, 33, 36);
   font-size: 45px;
   line-height: 65px;
+  margin-left: 10px;
 }
 .Weather canvas {
-  height: 60px;
   vertical-align: top;
-  margin-right: 10px;
 }
+
 .Weather .current-unit {
   color: rgb(32, 33, 36);
   position: relative;
