@@ -1,31 +1,47 @@
-import React from "react";
-import WeatherIcon from "./WeatherIcon";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import "./WeatherForecast.css";
 import axios from "axios";
+import WeatherForecastDay from "./WeatherForecastDay";
 
 export default function WeatherForecast(props) {
+  const [loaded, setLoaded] = useState(false);
+  const [forecast, setForecast] = useState(null);
+
+  //where cooordinates change then update forecast to match location
+  useEffect(() => {
+    setLoaded(false);
+  }, [props.coordinates]);
+
   function handleResponse(response) {
-    console.log(response.data);
+    setForecast(response.data.daily);
+    setLoaded(true);
   }
 
-  let apiKey = "d06e9073694a0fc6183b83aa2f9b6a1d";
-  let lat = props.coordinates.lon;
-  let lon = props.coordinates.lat;
-
-  let apiForecastUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
-  axios.get(apiForecastUrl).then(handleResponse);
-
-  return (
-    <div className="WeatherForecast">
-      <div className="row">
-        <div className="col">
-          <div classname="WeatherForecast-day">Thu</div>
-          <WeatherIcon code="01d" size={30} />
-          <div className="WeatherForecast-temp"></div>
-          <span className="WeatherForecast-max">19°</span>
-          <span className="WeatherForecast-min">10°</span>
+  //load forecast where daily array is more than 6 <only show forcast for next 6 days incl. today>
+  if (loaded) {
+    return (
+      <div className="WeatherForecast">
+        <div className="row">
+          {forecast.map(function (dailyForecast, index) {
+            if (index < 6) {
+              return (
+                <div className="col">
+                  <WeatherForecastDay data={dailyForecast} />
+                </div>
+              );
+            } else {
+              return null;
+            }
+          })}
         </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    let apiKey = "d06e9073694a0fc6183b83aa2f9b6a1d";
+    let lat = props.coordinates.lat;
+    let lon = props.coordinates.lon;
+    let apiForecastUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+    axios.get(apiForecastUrl).then(handleResponse);
+    return null;
+  }
 }
