@@ -4,9 +4,10 @@
   text-align: left;
   font-family: Arial, Helvetica, sans-serif;
   padding: 16px;
+  background-color: rgb(120, 167, 120);
 }
 .Weather h1 {
-  color: #202124;
+  color: #c8ec8d;
   font-size: 22px;
   line-height: 26px;
   margin: 20px 0 0 0;
@@ -16,7 +17,7 @@
   padding: 0;
 }
 .Weather li {
-  color: rgb(112, 117, 122);
+  color: #c8ec8d;
   list-style: none;
   font-size: 16px;
   height: 20px;
@@ -25,7 +26,7 @@
   margin-bottom: 30px;
 }
 .Weather .current-temperature {
-  color: rgb(32, 33, 36);
+  color: #c8ec8d;
   font-size: 45px;
   line-height: 65px;
   margin-left: 10px;
